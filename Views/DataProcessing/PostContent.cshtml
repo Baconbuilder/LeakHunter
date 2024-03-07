@@ -1,0 +1,61 @@
+﻿@model LeakHunter.Models.PostAnalysis
+@{
+    ViewData["Title"] = "處理後";
+}
+<head>
+<META HTTP-EQUIV="Pragma" CONTENT="no-cache">
+<META HTTP-EQUIV="Expires" CONTENT="-1">
+</head>
+<style type="text/css"> 
+   input[type="radio"]{
+  margin: 0 20px 0 20px;
+}
+</style>
+<div>
+    <div class="container text-center" style="margin-top: 0px;">
+        <h6 align="right">@Context.Session.GetString("UserName")</h6>
+    </div>
+    <table class="table table-bordered table-hover">
+            <tr>
+                <th scope="col">自訂名稱</th>
+                <td>@Html.DisplayFor(i=>i.WebName)</td>
+            </tr>
+            <tr>
+                <th scope="col">網址</th>
+                <td>@Html.DisplayFor(i=>i.Url)</td>
+            </tr>
+            <tr>
+                <th scope="col">日期</th>
+                <td>@Html.DisplayFor(i=>i.Time)</td>
+            </tr>
+
+            <tr>
+                <th scope="col">處理後資料</th>
+                <td>
+                    <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#exampleModal">網頁內容</button>
+                    <!-- Modal -->
+                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">處理後資料</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    @Html.DisplayFor(i=>i.PostContent)
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">關閉</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+    </table>
+</div>
+<div>
+    <form asp-action='UserRecords'>  
+        <input type="submit" class="btn btn-primary" style="margin-top: 10px;" value="返回" />
+    </form>
+</div>

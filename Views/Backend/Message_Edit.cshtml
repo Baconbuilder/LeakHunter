@@ -1,0 +1,54 @@
+﻿@model LeakHunter.Models.User_Message
+
+<div class="card">
+    @ViewBag.EditError
+    <div class="card-header">
+        <h5>修改訊息</h5>
+        @if(TempData["date_error"]!=null){
+            <h5>@TempData["date_error"]</h5>
+        }
+    </div>
+    <div class="card-body">
+        <form  asp-action="Message_Edit_run">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">
+                    <div class="form-floating">
+                        <input type="text" disabled="disabled" class="form-control" id="floatingInputValue" required="required" name="UName" value="@Html.DisplayFor(i=>i.UName)" />
+                        <label for="floatingInputValue">使用者</label>
+                    </div>
+                </li>
+                <li class="list-group-item">
+                    <div class="form-floating">
+                        <input type="text" disabled="disabled" class="form-control" id="floatingInputValue" required="required" name="UEmail" value="@Html.DisplayFor(i=>i.UEmail)" />
+                        <label for="floatingInputValue">Email</label>
+                    </div>
+                </li>
+                <li class="list-group-item">
+                    <div class="form-floating">
+                        <input type="text" class="form-control" id="floatingInputValue" required="required" name="Title" value="@Html.DisplayFor(i=>i.Title)" />
+                        <label for="floatingTextarea">輸入標題</label>
+                    </div>
+                </li>
+                <li class="list-group-item">
+                    <div class="form-floating">
+                        <textarea style="height: 100px" class="form-control" id="floatingTextarea" name="Content" required="required" rows="5" cols="33">@Html.DisplayFor(i=>i.Content)</textarea>
+                        <label for="floatingTextarea">輸入內容</label>
+                    </div>
+                </li>
+                <li class="list-group-item">
+                    @*<label class="form-control">原始時間:@Html.DisplayFor(i=>i.Date)</label>*@
+                    <div class="form-floating">
+                        <input type="datetime-local" value="@Html.DisplayFor(i=>i.Date)" class="form-control" name="Date" />
+                    </div>
+                </li>
+                <input type="hidden" name="MesId" value="@Html.DisplayFor(i=>i.MesId)"/>
+                <input type="hidden" name="UId" value="@Html.DisplayFor(i=>i.UId)"/>
+                
+                <li class="list-group-item">
+                    <input class="btn btn-success" type="submit" value="送出"/>
+                    <a class="btn btn-secondary" asp-controller='Backend' asp-action='Message_Manage'>返回</a>
+                </li>
+            </ul>
+        </form>
+    </div>
+</div>

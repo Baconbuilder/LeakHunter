@@ -1,0 +1,44 @@
+﻿
+@model IEnumerable<LeakHunter.Models.Hunter>
+<div class="card">
+    <div class="card-header">
+        <div class=row>
+            
+            <div class="col-3">
+              <h5>我的專案>專案紀錄</h5>
+            </div>
+        </div>
+    </div>
+    <div class="card-body">
+        <table class="table">
+            <thead>
+                <th scope="col">標題</th>
+                <th scope="col">時間</th>
+                <th scope="col">選項</th>
+            </thead>
+            <tbody>
+                @foreach(var i in Model)
+                {
+                    var a = "";
+                    <tr>
+                        <td scope="row">
+                            @Html.DisplayFor(model => i.WebName)
+                        </td>
+                        <td>
+                            <span class="d-inline-block text-truncate" style="max-width: 390px;">@i.Time</span>
+                        </td>
+                        <td>
+                            <a role="button" class="btn btn-success barbtn" asp-controller="DataProcessing" asp-action="UserRecords_class" asp-route-id="@i.CId">詳情</a>
+                        </td>
+                    </tr>       
+                }
+            </tbody>
+        </table>
+        @if (Model.Any()==false)
+        {
+            <div class="alert alert-secondary" role="alert">
+                <p class="h4">目前無訊息紀錄</p>
+            </div>
+        }
+    </div>
+</div>

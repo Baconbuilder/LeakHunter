@@ -1,0 +1,28 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "網頁檢測";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div>
+    
+    <form asp-action="detectInfo">
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+                <div class="form-floating">
+                    <input type="text" style="margin-top: 10px;" required="required" placeholder="自訂名稱" class="form-control" name="urlName">
+                    <label for="urlName">自訂名稱:</label>
+                </div>
+            </li>
+            <li class="list-group-item">
+                <div class="form-floating">
+                    <input type="text" style="margin-top: 10px;" required="required" placeholder="網址" class="form-control" name="Url">
+                    <label for="Url">網址:</label>
+                </div>
+            </li>
+        </ul>
+        <input class="btn btn-primary" type="submit" style="margin-top: 10px;" value="確認" />
+    </form>
+</div>
+

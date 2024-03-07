@@ -1,0 +1,28 @@
+﻿<div class="card">
+    <div class="card-header">
+        <a><h5>新增公告</h5></a>
+    </div>
+    <div class="card-body">
+        <form asp-action="Announment_Instert">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">
+                    <div class="form-floating">
+                        <input type="text" class="form-control" id="floatingInputValue" required="required" name="Title" />
+                        <label for="floatingInputValue">輸入標題</label>
+                    </div>
+                </li>
+                <li class="list-group-item">
+                    <div class="form-floating">
+                        <textarea style="height: 100px" class="form-control" id="floatingTextarea" name="Content" required="required"></textarea>
+                        <label for="floatingTextarea">輸入內容</label>
+                    </div>
+                </li>
+                <li class="list-group-item">
+                    <input class="btn btn-success" type="submit" value="送出"/>
+                    <a class="btn btn-secondary" asp-controller='Backend' asp-action='Announment_Manage'>返回</a>
+                </li>
+            </ul>
+        </form>
+    </div>
+</div>
+

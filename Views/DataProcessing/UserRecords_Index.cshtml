@@ -1,0 +1,51 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model IEnumerable<LeakHunter.Models.PostAnalysis>
+<div class="card">
+    <div class="card-header">
+        <div class=row>
+            <div class="col-12">
+              <h5>檢測紀錄</h5>
+            </div>
+        </div>
+    </div>
+    <div class="card-body">
+        <table class="table table-striped table-hover">
+            <thead>
+                <th scope="col">編號</th>
+                <th scope="col">自訂名稱</th>
+                <th scope="col">檢測日期</th>
+                <th scope="col">查看</th>
+            </thead>
+            <tbody>
+                @{ var total = 1; }
+                @foreach(var i in Model)
+                {
+                    <tr>
+                        <td scope="row">
+                            @total
+                        </td>
+                        <td scope="row">
+                            @Html.DisplayFor(model => i.WebName)
+                        </td>
+                        <td>
+                            <span class="d-inline-block text-truncate" style="max-width: 390px;">@Convert.ToDateTime(i.Time).ToString("yyyy/MM/dd")</span>
+                        </td>
+                        <td>
+                            @*<a role="button" class="btn btn-primary barbtn" asp-action="PreContent" asp-route-id="@i.AId">詳細內容</a>*@
+                            <a role="button" class="btn btn-primary barbtn" asp-action="UserRecords_class" asp-route-id="@i.CId">詳細內容</a>
+                        </td>
+                    </tr>
+                    total+=1;
+                }
+            </tbody>
+        </table>
+        @if (Model.Any()==false)
+        {
+            <div class="alert alert-secondary" role="alert">
+                <p class="h4">目前無檢測紀錄</p>
+            </div>
+        }
+    </div>
+</div>

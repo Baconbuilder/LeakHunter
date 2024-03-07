@@ -1,0 +1,189 @@
+﻿@model LeakHunter.Models.Statisics_PostAnalysis.SPA
+
+
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+  google.charts.load('current', {'packages':['bar']});
+  google.charts.setOnLoadCallback(drawStuff);
+
+  function drawStuff() {
+    var data = new google.visualization.arrayToDataTable([
+      ['偵測類別', '數量'],
+      ["姓名", @Html.DisplayFor(i=>i.statistics.name)],
+      ["Email", @Html.DisplayFor(i=>i.statistics.email)],
+      ["電話", @Html.DisplayFor(i=>i.statistics.phone)],
+      ["地址", @Html.DisplayFor(i=>i.statistics.address)]
+    ]);
+
+    var options = {
+      title: '個人紀錄統計',
+      width: 900,
+      legend: { position: 'none' },
+      chart: { title: '個人紀錄統計'},
+      bars: 'horizontal', // Required for Material Bar Charts.
+      axes: {
+        x: {
+          0: { side: 'top', label: '數量'} // Top x-axis.
+        }
+      },
+      bar: { groupWidth: "90%" }
+    };
+
+    var chart = new google.charts.Bar(document.getElementById('top_x_div'));
+    chart.draw(data, options);
+  };
+</script>
+
+<div class="card">
+    <div class="card-header">
+        <div class=row>
+            
+            <div class="col-4">
+              <h5>我的專案>專案紀錄>檢測詳情</h5>
+            </div>
+            <div class="col-5"></div>
+            <div class="col-3">
+                <div class="dropdown">
+                    <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                        下載
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                        <li><a class="dropdown-item" asp-action="current" asp-route-id="@Model.statistics.CId">Pdf下載</a></li>
+                        <li><a class="dropdown-item" asp-action="export" asp-route-id="@Model.statistics.CId">Excel下載</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+    <div class="card-body">
+        <ul class="list-group list-group-flush">
+            
+            <div id="top_x_div" style="width: 900px; height: 300px;"></div>
+        </ul>
+    </div>
+</div>
+
+<!--------------------------------------------------------------------------------------------------------------------------->
+<div class="card">
+    <div class="card-header">
+        <h5>數量統計</h5>
+    </div>
+    <div class="card-body">
+        <table class="table table-hover">
+            <thead>
+                    <tr>
+                        <th scope="col">檢測類別</th>
+                        <th scope="col">數量</th>
+                        
+		            </tr>
+	            </thead>
+                <tbody>
+                    <tr>
+                        <td>姓名</td>
+                        <td>@Html.DisplayFor(i=>i.statistics.name)</td>
+                        
+			        </tr>
+                </tbody>
+                <tbody>
+                    <tr>
+                        <td>Email</td>
+                        <td>@Html.DisplayFor(i=>i.statistics.email)</td>
+                        
+			        </tr>
+                </tbody>
+                <tbody>
+                    <tr>
+                        <td>電話</td>
+                        <td>@Html.DisplayFor(i=>i.statistics.phone)</td>
+			        </tr>
+                </tbody>
+                <tbody>
+                    <tr>
+                        
+                        <td>地址</td>
+                        <td>@Html.DisplayFor(i=>i.statistics.address)</td>
+			        </tr>
+                </tbody>
+        </table>
+    </div>
+</div>
+<!--------------------------------------------------------------------------------------------------------------------------->
+
+<div class="card">
+    <div class="card-header">
+        <h5>檢測資料</h5>
+    </div>
+    <div class="card-body">
+        @if(TempData["name_count"]!=null || TempData["email_count"]!=null || TempData["phone_count"]!=null || TempData["address_count"] != null)
+        {
+            <div class="row">
+            @if (TempData["name_count"].ToString() != "0")
+            {
+                <div class="col-sm-3">
+                    <div class="card">
+                      <div class="card-body">
+                        <h5 class="card-title">姓名檢測</h5>
+                        <a asp-action="PreContent" asp-route-id=@TempData["name_id"] class="btn btn-primary">詳細資料</a>
+                        <p class="card-text">@Html.DisplayFor(i=>i.postAnalysis1.PostContent)</p>
+                      </div>
+                    </div>
+                </div>
+                @*<a class="btn btn-outline-secondary" asp-action="PreContent" asp-route-id=@TempData["name_id"]>姓名檢測</a>
+                 <div class="modal-body">
+                    @Html.DisplayFor(i=>i.postAnalysis1.PostContent)
+                 </div>*@
+            }
+            @if (TempData["email_count"].ToString() != "0")
+            {
+                <div class="col-sm-3">
+                    <div class="card">
+                      <div class="card-body">
+                        <h5 class="card-title">Email檢測</h5>
+                        <a asp-action="PreContent" asp-route-id=@TempData["email_id"] class="btn btn-primary">詳細資料</a>
+                        <p class="card-text">@Html.DisplayFor(i=>i.postAnalysis3.PostContent)</p>
+                      </div>
+                    </div>
+                </div>
+                @*<a class="btn btn-outline-secondary" asp-action="PreContent" asp-route-id=@TempData["email_id"]>Email檢測</a>
+                <div class="modal-body">
+                    @Html.DisplayFor(i=>i.postAnalysis3.PostContent)
+                </div>*@
+            }
+            @if (TempData["phone_count"].ToString() != "0")
+            {
+                <div class="col-sm-3">
+                    <div class="card">
+                      <div class="card-body">
+                        <h5 class="card-title">電話檢測</h5>
+                        <a asp-action="PreContent" asp-route-id=@TempData["phone_id"] class="btn btn-primary">詳細資料</a>
+                        <p class="card-text">@Html.DisplayFor(i=>i.postAnalysis2.PostContent)</p>
+                      </div>
+                    </div>
+                </div>
+                @*<a class="btn btn-outline-secondary" asp-action="PreContent" asp-route-id=@TempData["phone_id"]>電話檢測</a>
+                <div class="modal-body">
+                    @Html.DisplayFor(i=>i.postAnalysis2.PostContent)
+                </div>*@
+            }   
+            @if (TempData["address_count"].ToString() != "0")
+            {
+                <div class="col-sm-3">
+                    <div class="card">
+                      <div class="card-body">
+                        <h5 class="card-title">地址檢測</h5>
+                        <a asp-action="PreContent" asp-route-id=@TempData["address_id"] class="btn btn-primary">詳細資料</a>
+                        <p class="card-text">@Html.DisplayFor(i=>i.postAnalysis4.PostContent)</p>
+                      </div>
+                    </div>
+                </div>
+                @*<a class="btn btn-outline-secondary" asp-action="PreContent" asp-route-id=@TempData["address_id"]>地址檢測</a>
+                <div class="modal-body">
+                    @Html.DisplayFor(i=>i.postAnalysis4.PostContent)
+                 </div>*@
+            }
+            </div>
+        }
+            
+    </div>
+</div>

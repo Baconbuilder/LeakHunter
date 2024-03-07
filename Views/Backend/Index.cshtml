@@ -1,0 +1,25 @@
+﻿@model IEnumerable<LeakHunter.Models.Announment>
+@{
+    ViewData["Title"] = "首頁";
+}
+<div class="card">
+    <div class="card-header">
+        <h5>公告</h5>
+    </div>
+    <div class="card-body">
+        @if (Model.Any()==false)
+        {
+            <div class="alert alert-secondary" role="alert">
+                <p class="h4">目前無公告</p>
+            </div>
+        }
+        <ul class="list-group list-group-flush">
+            @foreach(var i in Model)
+            {
+                <a class="btn btn-outline-secondary" asp-action="Announment_Content" asp-route-id="@i.AnnoId">@Html.DisplayFor(model => i.Title)&emsp;公佈日期:@Convert.ToDateTime(i.Date).ToString("yyyy/MM/dd")
+                </a>
+                <br><br>
+            }
+        </ul>
+    </div>
+</div>

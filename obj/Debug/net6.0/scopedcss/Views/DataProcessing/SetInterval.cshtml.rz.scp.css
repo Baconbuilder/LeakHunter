@@ -1,0 +1,13 @@
+a[b-kqcwhgkkml] {
+    text-decoration: none;
+}
+
+.barbtn[b-kqcwhgkkml] {
+    background-color: #5f5f5f;
+    color: #ffffff;
+}
+
+    .barbtn:hover[b-kqcwhgkkml] {
+        background-color: #00741b;
+        color: #ffffff;
+    }

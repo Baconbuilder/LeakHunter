@@ -1,0 +1,71 @@
+﻿@model IEnumerable<LeakHunter.Models.User>
+
+@{
+    ViewData["Title"] = "會員基本資料";
+}
+
+<body>
+    <div class="container text-center" style="margin-top: 0px;">
+        <div class="row">
+            <div class="col-12" id="a">
+                <div id="accordion">
+                    <div class="card">
+                        <div class="card-header text-s">    
+ <!------------------------------------------------------------------------------------->           
+                            @foreach(var obj in Model)
+                            {
+		                        <ul class="list-group list-group-flush">
+			                        <li class="list-group-item">
+				                        <div class="form-floating">
+					                        <input type="text" class="form-control" id="floatingInputValue" required="required" name="Title" asp-for="@obj.UName" readonly/>
+					                        <label for="floatingInputValue">帳號名稱</label>
+				                        </div>
+			                        </li>
+			                        <li class="list-group-item">
+				                        <div class="form-floating">
+					                        <input type="text" class="form-control" id="floatingInputValue" required="required" name="Title" asp-for="@obj.UEmail" readonly/>
+					                        <label for="floatingInputValue">電子郵件</label>
+				                        </div>
+			                        </li>
+			                        <li class="list-group-item">
+				                        <div class="form-floating">
+					                        <input type="text" class="form-control" id="floatingInputValue" required="required" name="Title" asp-for="@obj.UPassword" readonly/>
+					                        <label for="floatingInputValue">密碼</label>
+				                        </div>
+			                        </li>
+			                        <li class="list-group-item">
+				                        <div class="form-floating">
+					                        <input type="text" class="form-control" id="floatingInputValue" required="required" name="Title" asp-for="@obj.PhoneNumber" readonly/>
+					                        <label for="floatingInputValue">電話號碼</label>
+				                        </div>
+			                        </li>
+                                    <li class="list-group-item">
+				                        <div class="form-floating">
+					
+                                            @switch(@obj.Permission) { 
+                                                case "Z": 
+                                                    <input type="text" class="form-control" id="floatingInputValue" required="required" name="Title" value="審核中" readonly/>
+                                                    break; 
+                                                case "A": 
+                                                    <input type="text" class="form-control" id="floatingInputValue" required="required" name="Title" value="A權限" readonly/>
+                                                    break; 
+                                                case "B": 
+                                                    <input type="text" class="form-control" id="floatingInputValue" required="required" name="Title" value="B權限" readonly/>
+                                                    break; 
+                                                case "X": 
+                                                    <input type="text" class="form-control" id="floatingInputValue" required="required" name="Title" value="停權中" readonly/>
+                                                    break; 
+                                            }
+					                        <label for="floatingInputValue">權限</label>
+				                        </div>
+			                        </li>
+		                        </ul>
+                                <a asp-controller="Member" asp-action="User_Edit" asp-route-id="@obj.UId" class="btn btn-outline-primary">Edit</a>
+                            }  
+                        </div>     
+                    </div>
+                </div>
+            </div>  
+        </div>
+    </div>
+</body>

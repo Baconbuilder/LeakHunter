@@ -1,0 +1,159 @@
+﻿@model LeakHunter.Models.Interval
+@{
+}
+<style type="text/css"> 
+   input[type="radio"]{
+  margin: 0 20px 0 20px;
+}
+</style>
+
+<body>
+    <div class="container text-center" style="margin-top: 0px;">
+        @*<h6 align="right">@Context.Session.GetString("UserName")</h6>*@
+    </div>
+    
+    <div class="card">
+        <div class="card-header">
+            <div class=row>
+
+                <div class="col-12">
+                  <h3>編輯設定</h3>
+                </div>
+
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="container">
+                <form class="form-check" asp-action="User_Interval_Edit_Run">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">
+                            <div class="form-floating">
+                                <input type="hidden" id="IId" name="IId" value=@Html.DisplayFor(i=>i.IId) />
+                                <input type="text" id="title" required="required" placeholder="自訂標題" class="form-control" name="WebName"value=@Html.DisplayFor(i=>i.WebName)>
+                                <label for="title">自訂標題:</label>
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            <div class="form-floating">
+                                <input type="text" id="URL" required="required" placeholder="網址" class="form-control"name="Url"value=@Html.DisplayFor(i=>i.Url)>
+                                <label for="URL">網址:</label>
+                            </div>
+                        </li>
+                    </ul>
+                    <br />
+                    <div class="row justify-content-md-center">
+                        <div class="col col-lg-2">
+                            <h4 class="h4">頻率</h4>
+                        </div>
+                        @switch (Model.Day)
+                        {
+                            case 1:
+                                <div class="col-md-auto">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="Day" id="t1" value="1" checked>
+                                        <label class="form-check-label" for="t1">
+                                            每天
+                                        </label>
+                                    &emsp;&emsp;&emsp;
+                                        <input class="form-check-input" type="radio" name="Day" value="2" id="t2">
+                                        <label class="form-check-label" for="t2">
+                                            每周
+                                        </label>
+                                    &emsp;&emsp;&emsp;
+                                        <input class="form-check-input" type="radio" name="Day" value="3" id="t3" >
+                                        <label class="form-check-label" for="t3">
+                                            每月
+                                        </label>
+                                    &emsp;&emsp;&emsp;
+                                        <input class="form-check-input" type="radio" name="Day" value="4" id="t4" >
+                                        <label class="form-check-label" for="t4">
+                                            每年
+                                        </label>
+                                    </div>
+                                </div>
+                                break;
+                            case 2:
+                                <div class="col-md-auto">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="Day" id="t1" value="1" >
+                                        <label class="form-check-label" for="t1">
+                                            每天
+                                        </label>
+                                    &emsp;&emsp;&emsp;
+                                        <input class="form-check-input" type="radio" name="Day" value="2" id="t2" checked>
+                                        <label class="form-check-label" for="t2">
+                                            每周
+                                        </label>
+                                    &emsp;&emsp;&emsp;
+                                        <input class="form-check-input" type="radio" name="Day" value="3" id="t3" >
+                                        <label class="form-check-label" for="t3">
+                                            每月
+                                        </label>
+                                    &emsp;&emsp;&emsp;
+                                        <input class="form-check-input" type="radio" name="Day" value="4" id="t4" >
+                                        <label class="form-check-label" for="t4">
+                                            每年
+                                        </label>
+                                    </div>
+                                </div>
+                                break;
+                            case 3:
+                                <div class="col-md-auto">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="Day" id="t1" value="1" >
+                                        <label class="form-check-label" for="t1">
+                                            每天
+                                        </label>
+                                    &emsp;&emsp;&emsp;
+                                        <input class="form-check-input" type="radio" name="Day" value="2" id="t2">
+                                        <label class="form-check-label" for="t2">
+                                            每周
+                                        </label>
+                                    &emsp;&emsp;&emsp;
+                                        <input class="form-check-input" type="radio" name="Day" value="3" id="t3" checked>
+                                        <label class="form-check-label" for="t3">
+                                            每月
+                                        </label>
+                                    &emsp;&emsp;&emsp;
+                                        <input class="form-check-input" type="radio" name="Day" value="4" id="t4" >
+                                        <label class="form-check-label" for="t4">
+                                            每年
+                                        </label>
+                                    </div>
+                                </div>
+                                break;
+                            case 4:
+                                <div class="col-md-auto">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="Day" id="t1" value="1">
+                                        <label class="form-check-label" for="t1">
+                                            每天
+                                        </label>
+                                    &emsp;&emsp;&emsp;
+                                        <input class="form-check-input" type="radio" name="Day" value="2" id="t2">
+                                        <label class="form-check-label" for="t2">
+                                            每周
+                                        </label>
+                                    &emsp;&emsp;&emsp;
+                                        <input class="form-check-input" type="radio" name="Day" value="3" id="t3" >
+                                        <label class="form-check-label" for="t3">
+                                            每月
+                                        </label>
+                                    &emsp;&emsp;&emsp;
+                                        <input class="form-check-input" type="radio" name="Day" value="4" id="t4" checked>
+                                        <label class="form-check-label" for="t4">
+                                            每年
+                                        </label>
+                                    </div>
+                                </div>
+                                break;
+                        }
+                    </div>
+                    <br />
+                    <input class="btn btn-primary" type="submit" value="確認" />
+                    <h5>@ViewBag.interval</h5>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>

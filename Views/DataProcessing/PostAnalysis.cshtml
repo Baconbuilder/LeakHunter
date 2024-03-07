@@ -1,0 +1,84 @@
+﻿@{
+    ViewData["Title"] = "分析結果";
+    string[] Tableheaders = new string[] {"自訂名稱", "網址"
+      ,"日期"
+      ,"處理後資料" };
+}
+
+<head>
+<META HTTP-EQUIV="Pragma" CONTENT="no-cache">
+<META HTTP-EQUIV="Expires" CONTENT="-1">
+</head>
+
+<style type="text/css"> 
+   input[type="radio"]{
+  margin: 0 20px 0 20px;
+}
+</style>
+<div>
+        <div class="container text-center" style="margin-top: 0px;">
+        <h6 align="right">@Context.Session.GetString("UserName")</h6>
+    </div>
+    <table class="table table-bordered table-hover">
+        @{
+            if (Model != null)
+            {
+                foreach(var Data in Model)
+                {
+                    <tr>
+                        <th scope="col">自訂名稱</th>
+                        <td>@Data.WebName</td>
+                    </tr>
+                    <tr>
+                        <th scope="col">網址</th>
+                        <td>@Data.Url</td>
+                    </tr>
+                    <tr>
+                        <th scope="col">日期</th>
+                        <td>@Data.Time</td>
+                    </tr>
+                    <tr>
+                        <th scope="col" style="color:red">處理後資料</th>
+                        <td>
+                            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">網頁內容</button>
+                            <!-- Modal -->
+                            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered">
+                                  <div class="modal-content">
+                                    <div class="modal-header">
+                                      <h5 class="modal-title" id="exampleModalLabel">處理後資料</h5>
+                                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                      <div>
+                                      <b>姓名檢測: </b><br>
+                                        @Data.Name <br>
+                                      </div>
+                                         <div>
+                                      <b>電話檢測: </b><br>
+                                        @Data.Phone <br>
+                                      </div>
+                                         <div>
+                                      <b>Email檢測: </b><br>
+                                        @Data.Email <br>
+                                      </div>
+                                        <div>
+                                      <b>地址檢測: </b><br>
+                                        @Data.Address <br>
+                                      </div>
+
+                                    </div>
+                                    <div class="modal-footer">
+                                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">關閉</button>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            }
+        }
+    </table>
+    <a class='btn btn-primary' asp-area='' asp-controller='DataProcessing' asp-action='Detect'>回檢測頁面</a>
+</div>

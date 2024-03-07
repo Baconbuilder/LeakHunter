@@ -1,0 +1,16 @@
+﻿@model LeakHunter.Models.Message
+<div class="card">
+    <div class="card-header">
+        <h5>@Html.DisplayFor(i => i.Title)</h5>
+    </div>
+    <div class="card-body">
+        <ul class="list-group list-group-flush">
+             <li class="list-group-item">
+                 <textarea class="form-control" id="floatingTextarea" name="Content" required="required" rows="5" cols="33" readonly>@Html.DisplayFor(i => i.Content)</textarea>
+             </li>
+             <li class="list-group-item">公佈日期:@Html.DisplayFor(i => i.Date)</li>
+        </ul>
+        <a class="btn btn-secondary" asp-controller='Backend' asp-action='Message'>返回</a>
+    </div>
+</div>
+

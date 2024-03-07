@@ -1,0 +1,74 @@
+﻿@model IEnumerable<LeakHunter.Models.Analysis_User>
+@{
+    ViewData["Title"] = "檢測紀錄";
+}
+<body>
+    <div class="container text-center" style="margin-top: 10px;">
+        <div class="row">
+            <div class="col-12" id="a">
+                <form asp-action="Analysis_Manage">
+                    <div id="accordion" style="margin-bottom:10px;">
+                        <div class="card" style="margin-bottom:10px;">
+                            <div class="card-header text-wrap" style="height:50px;margin-bottom:10px;">       
+                                <a class="collapsed btn" data-bs-toggle="collapse" href="#collapseTwo">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" style="margin-bottom:5px;margin-right:10px;" class="bi bi-funnel" viewBox="0 0 16 16">
+                                        <path d="M1.5 1.5A.5.5 0 0 1 2 1h12a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.128.334L10 8.692V13.5a.5.5 0 0 1-.342.474l-3 1A.5.5 0 0 1 6 14.5V8.692L1.628 3.834A.5.5 0 0 1 1.5 3.5v-2zm1 .5v1.308l4.372 4.858A.5.5 0 0 1 7 8.5v5.306l2-.666V8.5a.5.5 0 0 1 .128-.334L13.5 3.308V2h-11z"/>
+                                    </svg>
+                                        篩選查詢
+                                </a>
+                            </div>
+                            <div id="collapseTwo" class="collapse" data-bs-parent="#accordion">
+                                <div class="row">
+                                    <div class="col">
+                                        <input class="form-control" style="width:200px;margin-left:25px;margin-top:10px;margin-bottom:10px;" type="text" name="UEmail" placeholder="請輸入UserEmail">
+                                    </div>
+                                    <div class="col">
+                                        <input class="form-control" style="width:200px;margin-left:25px;margin-top:10px;margin-bottom:10px;" type="text" name="WebName" placeholder="請輸入標題">
+                                    </div>
+                                    <div class="col">
+                                        <input class="form-control" style="width:200px;margin-left:25px;margin-top:10px;margin-bottom:10px;" type="text" name="Url" placeholder="請輸入網址">
+                                    </div>
+                                    <div class="col">
+                                        <input type="submit" value="查詢" class="btn btn-secondary barbtn"style="margin-bottom:10px;margin-top:10px;">
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+ <!-----------------------------------------------------------------------------------------------------> 
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            @*<th>ID</th>*@
+                            <th scope="col">User</th>
+                            <th scope="col">WebName</th>
+                            @*<th scope="col">Phone</th>*@
+                            <th scope="col">URL</th>
+                            <th scope="col">選項</th>
+		                </tr>
+	                </thead>
+                    <tbody>
+                        @foreach(var obj in Model)
+                        {
+                            <tr>
+                                <td>@obj.UName</td>
+                                <td>@obj.WebName</td>
+                                <td>@obj.Url</td>
+                                @*<td><a asp-action="Analysis_Content" asp-route-id="@obj.AId"class="btn btn-primary" >詳細資料</a></td>*@
+                                <td><a asp-controller='DataProcessing' asp-action="UserRecords_class" asp-route-id="@obj.CId"class="btn btn-primary" >詳細資料</a></td>
+			                </tr>
+                        }
+                    </tbody>
+                </table>
+                @if (Model.Any()==false)
+                {
+                    <div class="alert alert-secondary" role="alert">
+                        <p class="h4">目前無檢測紀錄</p>
+                    </div>
+                }
+            </div>  
+        </div>
+    </div>
+</body>

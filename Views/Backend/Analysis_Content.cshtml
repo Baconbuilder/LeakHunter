@@ -1,0 +1,85 @@
+﻿@model LeakHunter.Models.Analysis_User
+@{
+    ViewData["Title"] = "處理後";
+}
+<head>
+<META HTTP-EQUIV="Pragma" CONTENT="no-cache">
+<META HTTP-EQUIV="Expires" CONTENT="-1">
+</head>
+<style type="text/css"> 
+   input[type="radio"]{
+  margin: 0 20px 0 20px;
+}
+</style>
+<div>
+    <table class="table table-bordered table-hover">
+            <tr>
+                <th scope="col">使用者姓名</th>
+                <td>@Html.DisplayFor(i=>i.UName)</td>
+            </tr>
+            <tr>
+                <th scope="col">自訂名稱</th>
+                <td>@Html.DisplayFor(i=>i.WebName)</td>
+            </tr>
+            <tr>
+                <th scope="col">網址</th>
+                <td>@Html.DisplayFor(i=>i.Url)</td>
+            </tr>
+            <tr>
+                <th scope="col">日期</th>
+                <td>@Html.DisplayFor(i=>i.Time)</td>
+            </tr>
+
+            <tr>
+                <th scope="col">分析前資料</th>
+                <td>
+                    <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#exampleModal">分析前的內容</button>
+                    <!-- Modal -->
+                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">分析前資料</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    @Html.DisplayFor(i=>i.WContent)
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">關閉</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <th scope="col">分析後資料</th>
+                <td>
+                    <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#xampleModal">分析後的內容</button>
+                    <!-- Modal -->
+                    <div class="modal fade" id="xampleModal" tabindex="-1" aria-labelledby="xampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="xampleModalLabel">處理後資料</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    @Html.DisplayFor(i=>i.Content)
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">關閉</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+    </table>
+</div>
+<div>
+    <form asp-action='Analysis_Manage'>  
+        <input type="submit" class="btn btn-primary" style="margin-top: 10px;" value="返回" />
+    </form>
+</div>

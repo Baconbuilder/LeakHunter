@@ -1,0 +1,126 @@
+﻿
+@model IEnumerable<LeakHunter.Models.Interval>
+<div class="card">
+    <div class="card-header">
+        <div class=row>
+
+            @if(TempData["check_count"].ToString() == "Can not use")
+            {
+                <div class="col-1 justify-content-end">
+                    
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        新增專案
+                    </button>
+                </div>
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">提醒通知!!</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                      </div>
+                      <div class="modal-body">
+                        權限不足，專案已超過三個，無法新增
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">關閉</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            }
+            else
+            {
+                <div class="col-1 justify-content-end">
+                    <a class="btn btn-primary" asp-action="SetInterval">新增專案</a>
+                </div>
+            }
+
+            <div class="col-1 justify-content-end">
+              <a class="btn btn-primary" asp-controller="DataProcessing"  asp-action="Upload">離線檔案檢測</a>
+              
+            </div>
+
+            <div class="col-11">
+              <h5>我的專案</h5>
+            </div>
+
+        </div>
+    </div>
+    <div class="card-body">
+        <table class="table">
+            <thead>
+                <th scope="col" class="col-4">標題</th>
+                <th scope="col" class="col-4">檢測頻率</th>
+                <th scope="col" class="col-4">選項</th>
+            </thead>
+            <tbody>
+                @foreach(var i in Model)
+                {
+                    var a = "";
+                    <tr>
+                        <td scope="row">
+                            @Html.DisplayFor(model => i.WebName)
+                        </td>
+                        <td>
+                            @switch(i.Day) { 
+                                        
+                                        case 1:
+                                            a = "每天";
+                                            break; 
+                                        case 2: 
+                                            a = "每周";
+                                            break; 
+                                        case 3: 
+                                            a = "每月";
+                                            break; 
+                                        case 4: 
+                                            a = "每年";
+                                            break; 
+                                    }
+                            <span class="d-inline-block text-truncate" style="max-width: 390px;">@a</span>
+                        </td>
+                        <td>
+                            <button type="button" class="btn btn-success barbtn" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                                執行
+                            </button>
+
+                            <!-- Modal -->
+                            <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                  <div class="modal-content">
+                                    <div class="modal-header">
+                                      <h5 class="modal-title" id="staticBackdropLabel">立即檢測</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        標題： @Html.DisplayFor(model => i.WebName) 
+                                        <br><br>
+                                        按下「確定執行」後請等待一段時間，謝謝~
+                                        <br><br>
+                                        <a role="button" class="btn btn-success barbtn" asp-action="Data_Processing_run" asp-route-id="@i.IId">確定執行</a>
+                                    </div>
+                                    <div class="modal-footer">
+                                        
+                                    </div>
+                                </div>
+                              </div>
+                            </div>
+
+                            @*<a role="button" class="btn btn-success barbtn" asp-action="Data_Processing_run" asp-route-id="@i.IId">執行</a>*@
+                            <a role="button" class="btn btn-success barbtn" asp-action="Interval_History" asp-route-id="@i.WebName">紀錄</a>
+                            <a role="button" class="btn btn-success barbtn" asp-action="User_Interval_Edit" asp-route-id="@i.IId">編輯</a>
+                            <a role="button" class="btn btn-danger barbtn" asp-action="User_Interval_del" asp-route-id="@i.IId" onclick="return confirm('Are you sure you want to delete this?')" >刪除</a>
+                        </td>
+                    </tr>       
+                }
+            </tbody>
+        </table>
+        @if (Model.Any()==false)
+        {
+            <div class="alert alert-secondary" role="alert">
+                <p class="h4">目前無訊息紀錄</p>
+            </div>
+        }
+    </div>
+</div>

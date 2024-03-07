@@ -1,0 +1,13 @@
+﻿a {
+    text-decoration: none;
+}
+
+.barbtn {
+    background-color: #5f5f5f;
+    color: #ffffff;
+}
+
+    .barbtn:hover {
+        background-color: #00741b;
+        color: #ffffff;
+    }

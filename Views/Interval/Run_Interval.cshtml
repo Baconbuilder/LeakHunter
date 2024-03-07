@@ -1,0 +1,55 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model LeakHunter.Models.Interval
+@{
+    var time = ViewBag.time;
+}
+<style>
+    p {text-align: center;font-size:25px;}
+    #timer {
+      font-size: 40px;
+      font-family: Arial, sans-serif;
+      font-weight: bold;
+    }
+</style>
+<script>
+    const countdown = () => {
+        let timer = document.getElementById("timer");
+        let dt = new Date();
+        let h = dt.getHours();
+        let m = dt.getMinutes();
+        let s = dt.getSeconds();
+
+        // minutes remaining until next 10 minute mark
+        m = s ? 9 - (m % 10) : 10 - (m % 10);
+
+        // seconds remaining until next minute mark
+        if (s) {
+          s = 60 - s;
+        }
+
+        timer.textContent = `${m}:${s < 80 ? "0" + s : s} 分/秒`;
+      };
+      setInterval(countdown, 1000);
+</script>
+<body>
+    <script  type="text/javascript">
+        var a = "Run_DataProcessing"
+        setTimeout("location.href = a", @time*1000)
+    </script>
+    <br />
+    @*<div class="alert alert-info" role="alert">
+        <h4>下一次執行秒數 @time 秒</h4>
+    </div>*@
+    <br />
+    <div class="alert alert-dark" role="alert">
+        <h4>此系統每10分鐘檢測一次</h4>
+    </div>
+    <div class="alert alert-info" role="alert">
+        <p>
+            <span id="timer"></span>
+        </p>
+    </div>
+    
+</body>

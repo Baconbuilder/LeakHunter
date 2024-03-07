@@ -1,0 +1,107 @@
+﻿@model LeakHunter.Models.PostAnalysis
+@{
+    ViewData["Title"] = "處理前";
+}
+<head>
+<META HTTP-EQUIV="Pragma" CONTENT="no-cache">
+<META HTTP-EQUIV="Expires" CONTENT="-1">
+</head>
+<style type="text/css"> 
+   input[type="radio"]{
+  margin: 0 20px 0 20px;
+}
+</style>
+<div>
+<div class="card">
+    <div class="card-header">
+        <div class=row>
+            
+            <div class="col-5">
+                    @if (Context.Session.GetString("admin") != "admin")
+                    {
+                        <h5>我的專案>專案紀錄>檢測詳情>資料細項</h5>
+                    }
+                    
+            </div>
+            
+        </div>
+        
+    </div>
+    <div class="card-body">
+        <table class="table table-bordered  table-hover">
+                <tr>
+                    <th scope="col">自訂名稱</th>
+                    <td>@Html.DisplayFor(i=>i.WebName)</td>
+                </tr>
+                <tr>
+                    <th scope="col">網址</th>
+                    <td>@Html.DisplayFor(i=>i.Url)</td>
+                </tr>
+                <tr>
+                    <th scope="col">檢測時間</th>
+                    <td>@Html.DisplayFor(i=>i.Time)</td>
+                </tr>
+                <tr>
+                    <th scope="col">處理前資料</th>
+                    <td>
+                        <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#exampleModal">處理前內容</button>
+                        <!-- Modal -->
+                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered">
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <h5 class="modal-title" id="exampleModalLabel">處理前資料</h5>
+                                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                  @Html.DisplayFor(i=>i.PreContent)
+                                </div>
+                                <div class="modal-footer">
+                                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">關閉</button>
+                                </div>
+                              </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="col">處理後資料</th>
+                    <td>
+                        <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#exampleModal2">處理後內容</button>
+                        <!-- Modal -->
+                        <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered">
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <h5 class="modal-title" id="exampleModalLabel">處理後資料</h5>
+                                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                  @Html.DisplayFor(i=>i.PostContent)
+                                </div>
+                                <div class="modal-footer">
+                                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">關閉</button>
+                                </div>
+                              </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+        </table>
+    </div>
+</div>
+
+</div>
+<div>
+    @if(Context.Session.GetString("admin") == "admin")
+    {
+        <form asp-controller='Backend' asp-action='Analysis_Manage'>  
+            <input type="submit" class="btn btn-primary" style="margin-top: 10px;" value="返回檢測資料" />
+        </form>
+    }else{
+        <form asp-controller='Interval' asp-action='User_Interval'>  
+            <input type="submit" class="btn btn-primary" style="margin-top: 10px;" value="返回我的專案" />
+        </form>
+    }
+    
+</div>

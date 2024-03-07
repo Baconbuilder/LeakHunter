@@ -1,0 +1,50 @@
+﻿@model IEnumerable<LeakHunter.Models.Announment>
+@{
+}
+<div class="card">
+    <div class="card-header">
+        <div class=row>
+
+            <div class="col-1 justify-content-end">
+              <a class="btn btn-primary" asp-action="Announment_Create">新增公告</a>
+            </div>
+
+            <div class="col-11">
+              <h5>公告</h5>
+            </div>
+        
+        </div>
+    </div>
+    <div class="card-body">
+        <table class="table">
+            <thead>
+                <th scope="col">標題</th>
+                <th scope="col">公佈日期</th>
+                <th scope="col">選項</th>
+            </thead>
+            <tbody>
+                @foreach(var i in Model)
+                {
+                    <tr>
+                        <th scope="row">
+                            @Html.DisplayFor(model => i.Title)
+                        </th>
+                        <td>
+                            <span class="d-inline-block text-truncate" style="max-width: 390px;">@Convert.ToDateTime(i.Date).ToString("yyyy/MM/dd")</span>
+                        </td>
+                        <td>
+                            <a role="button" class="btn btn-success barbtn" asp-action="Announment_Edit" asp-route-id="@i.AnnoId">編輯</a>
+                            <a role="button" class="btn btn-danger barbtn" asp-action="Announment_del" asp-route-id="@i.AnnoId" onclick="return confirm('Are you sure you want to delete this?')" >刪除</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        @if (Model.Any()==false)
+        {
+            <div class="alert alert-secondary" role="alert">
+                <p class="h4">目前無公告</p>
+            </div>
+        }
+    </div>
+</div>

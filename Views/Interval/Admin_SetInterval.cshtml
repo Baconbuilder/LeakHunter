@@ -1,0 +1,70 @@
+﻿@{
+    ViewData["Title"] = "設定掃描頻率";
+}
+<style type="text/css"> 
+   input[type="radio"]{
+  margin: 0 20px 0 20px;
+}
+</style>
+
+<body>
+    <div class="container text-center" style="margin-top: 0px;">
+        @*<h6 align="right">@Context.Session.GetString("UserName")</h6>*@
+    </div>
+    <div style="margin-top: 10px;">
+        <h2>設定掃描頻率</h2>
+    </div>
+    <div class="card-body">
+        <div class="container">
+            <form class="form-check" asp-action="Admin_Set_Interval">
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">
+                        <div class="form-floating">
+                            <input type="text" id="title" required="required" placeholder="自訂標題" class="form-control" name="WebName">
+                            <label for="title">自訂標題:</label>
+                        </div>
+                    </li>
+                    <li class="list-group-item">
+                        <div class="form-floating">
+                            <input type="text" id="URL" required="required" placeholder="網址" class="form-control"name="Url">
+                            <label for="URL">網址:</label>
+                        </div>
+                    </li>
+                </ul>
+                <br />
+                <div class="row justify-content-md-center">
+                    <div class="col col-lg-2">
+                        <h4 class="h4">頻率</h4>
+                    </div>
+                    <div class="col-md-auto">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="time" id="t1" value="1" checked>
+                            <label class="form-check-label" for="t1">
+                                每天
+                            </label>
+                        &emsp;&emsp;&emsp;
+                            <input class="form-check-input" type="radio" name="time" value="2" id="t2">
+                            <label class="form-check-label" for="t2">
+                                每周
+                            </label>
+                        &emsp;&emsp;&emsp;
+                            <input class="form-check-input" type="radio" name="time" value="3" id="t3">
+                            <label class="form-check-label" for="t3">
+                                每月
+                            </label>
+                        &emsp;&emsp;&emsp;
+                            <input class="form-check-input" type="radio" name="time" value="4" id="t4">
+                            <label class="form-check-label" for="t4">
+                                每年
+                            </label>
+                            <input type="hidden" value="@ViewBag.id" name="id"/>
+                        </div>
+                    </div>
+                </div>
+                <br />
+                <input class="btn btn-primary" type="submit" value="確認" />
+                <a>@ViewBag.id</a>
+            </form>
+        </div>
+    </div>
+</body>

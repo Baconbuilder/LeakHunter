@@ -1,0 +1,254 @@
+﻿@using LeakHunter.Models;
+@using Microsoft.AspNetCore.Http;
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - LeakHunter</title>
+    <script src="~/jquery-3.6.0.js"></script>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/LeakHunter.styles.css" asp-append-version="true" />
+
+    <!-- -----------------------boo--------------------- -->
+<!-- Bootstrap CSS CDN -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <!-- Our Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Font Awesome JS -->
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
+    <!-- -----------------------boo--------------------- -->
+</head>
+<style>
+.sidebar{
+    color:#fff;
+}
+.sidebar:hover{
+    color:#000;
+}
+</style>
+<body>
+    <!-- -----------------------boo--------------------- -->
+<!-- jQuery CDN - Slim version (=without AJAX) -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <!-- Popper.JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+    <!-- icon -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    <!-- -----------------------boo--------------------- -->
+    @if (Context.Session.GetInt32("UserId") != null || Context.Session.GetString("admin") == "admin")
+    { }else{
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3 fixed-top">
+
+            <div class="container-fluid">
+                @if ((Context.Session.GetInt32("UserId") != null && Context.Session.GetInt32("State") == 0) || Context.Session.GetString("admin") == "admin")
+                {
+                    <nav class="navbar-expand-lg navbar-light bg-light">
+                        <button type="button" id="sidebarCollapse" class="btn btn-info">
+                            <i class="fas fa-align-left"></i>
+                        </button>
+                    </nav>
+                }
+                &emsp;
+                <a class="navbar-brand" asp-area="" asp-controller="Backend" asp-action="Index">LeakHunter</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Backend" asp-action="Index">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            @if (Context.Session.GetInt32("UserId") != null || Context.Session.GetString("admin") == "admin") { }
+                            else
+                            {
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Login">Login</a>
+                            }
+                        </li>
+                        @if (Context.Session.GetInt32("UserId") != null)
+                        {
+                            <li class="nav-item"><a class="nav-link text-dark" asp-area='' asp-controller='Interval' asp-action='User_Interval'>我的專案</a></li>
+                        }
+
+                        <li class="nav-item"><a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="about">聯絡/關於我們</a></li>
+                    </ul>
+                </div>
+                @if (Context.Session.GetString("UserName") != null)
+                {
+                    <div class="btn-group dropstart">
+                        <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="bi bi-person-square"></i>
+                            <a>@Context.Session.GetString("UserName")</a>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item text-dark" asp-controller='Member' asp-action='User_Self'>會員基本資料</a></li>
+                            <li><a class="dropdown-item text-dark" asp-controller='Backend' asp-action='Message'>通知訊息</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item text-dark" asp-controller='Home' asp-action='Login_Out'>登出</a></li>
+                        </ul>
+                    </div>
+                }
+            </div>
+        </nav>
+    }
+    
+    <div class="wrapper" style="margin-top: 0px;">
+        <!-- Sidebar -->
+        @if(Context.Session.GetInt32("UserId") != null && Context.Session.GetInt32("State")==0)
+        {
+        <nav id="sidebar" class="fixed-top">
+            <ul class="list-unstyled components">
+                @*<li class="active">
+                    <label>&emsp;歡迎~@Context.Session.GetString("UserName")使用者</label>
+                </li>*@
+                <li class="active">
+                    
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="about"><i class="bi bi-house-door"></i>&emsp;LeakHunter</a>
+                </li>
+                <br>
+                @if (Context.Session.GetString("Permission")=="A" || Context.Session.GetString("Permission")=="B")
+                {
+                    <li>
+                        <a class='sidebar' asp-area="" asp-controller="Backend" asp-action="Index"><i class="bi bi-bell"></i>&emsp;系統公告</a>
+                    </li>
+                    <li>
+                        <a class='sidebar' asp-area='' asp-controller='Interval' asp-action='User_Interval'><i class="bi bi-folder2"></i>&emsp;我的專案</a>
+                    </li>
+                    @*<li>
+                        <a class='sidebar' asp-area='' asp-controller='DataProcessing' asp-action='UserRecords_Index' >個人紀錄(hide)</a>
+                    </li>
+                    <li>
+                        <a class='sidebar' asp-area='' asp-controller='DataProcessing' asp-action='Detect'>網頁檢測(hide)</a>
+                    </li>*@
+                }
+                else
+                {
+                    <li>
+                        <a class='sidebar' asp-area="" asp-controller="Backend" asp-action="Index"><i class="bi bi-bell"></i>&emsp;系統公告</a>
+                    </li>
+                    <li>
+                        <a class='sidebar' type="button" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="bi bi-folder2"></i>&emsp;我的專案</a>
+                    </li>
+                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                      <div class="modal-dialog">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel" style="color:black">權限不足</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                          </div>
+                          <div class="modal-body" style="color:black">
+                            請通知本網站系統人員開通權限，並等待通知訊息
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                }
+                
+            </ul>
+            <br><br><br><br></br><br><br></br><br>
+            <ul class="list-unstyled  components">
+                <li>
+                    <a class="sidebar" asp-controller='Member' asp-action='User_Self'><i class="bi bi-person-square"></i>&emsp;會員基本資料</a>
+                </li>
+                <li>
+                    <a class="sidebar" asp-controller='Backend' asp-action='Message'><i class="bi bi-chat-dots"></i>&emsp;通知訊息</a>
+                </li>
+                <li>
+                    <a class="sidebar" asp-area="" asp-controller="Home" asp-action="about"><i class="bi bi-telephone"></i>&emsp;聯絡/關於我們</a>
+                </li>
+                <li>
+                    <a class="sidebar" asp-controller='Home' asp-action='Login_Out'><i class="bi bi-box-arrow-right"></i>&emsp;登出</a>
+                </li>
+            </ul>
+            
+            
+        </nav>
+
+        
+
+        }
+        @if (Context.Session.GetString("admin") == "admin")
+        {
+        <nav id="sidebar" class="fixed-top">
+            <ul class="list-unstyled components">
+                @*<li class="active">
+                    <label>
+                        &emsp;歡迎~@Context.Session.GetString("admin")管理者
+                    </label>
+                </li>*@
+                <li class="active">
+                    
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="about"><i class="bi bi-house-door"></i>&emsp;LeakHunter</a>
+                </li>
+                <br>
+                <li>
+                    <a class="sidebar" asp-controller='Backend' asp-action='Announment_Manage'><i class="bi bi-bell"></i>&emsp;後台公告</a>
+                </li>
+                <li>
+                    <a class="sidebar" asp-controller='Member' asp-action='Search_User'><i class="bi bi-people"></i>&emsp;會員管理</a>
+                </li>
+                <li>
+                    <a class="sidebar" asp-controller='Backend' asp-action='Message_Manage'><i class="bi bi-chat-dots"></i>&emsp;後台訊息</a>
+                </li>
+                <li>
+                    <a class="sidebar" asp-controller='Interval' asp-action='Run_Interval'><i class="bi bi-chat-dots"></i>&emsp;執行定期檢測</a>
+                </li>
+                <li>
+                    <a class="sidebar" asp-controller='StatusSetting' asp-action='StatusSetting_Manager'><i class="bi bi-tools"></i>&emsp;系統狀態設定</a>
+                </li>
+                <li>
+                    <a class="sidebar" asp-controller='Backend' asp-action='Analysis_Manage'><i class="bi bi-search"></i>&emsp;檢測資料</a>
+                </li>
+                <br><br><br>
+                <li>
+                    <a class="sidebar" asp-controller='Home' asp-action='Login_Out'><i class="bi bi-box-arrow-right"></i>&emsp;登出</a>
+                </li>
+            </ul>
+            
+        </nav>
+        }
+        <div id="content" class="container text-center" >
+            @if (Context.Session.GetInt32("UserId") != null || Context.Session.GetString("admin") == "admin")
+            {
+                <main role="main" class="pb-3" style="margin-top: 10px;margin-left: 130px;margin-right: -150px;">
+                    @RenderBody()
+                </main>
+            }
+            else
+            {
+                <main role="main" class="pb-3" style="margin-top: 60px;">
+                    @RenderBody()
+                </main>
+            }
+            
+        </div>
+    </div>
+
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
+
+<script>
+$(document).ready(function () {
+
+    $('#sidebarCollapse').on('click', function () {
+        $('#sidebar').toggleClass('active');
+    });
+
+});
+</script>

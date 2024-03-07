@@ -1,0 +1,192 @@
+is_global = true
+build_property.TargetFramework = net6.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = LeakHunter
+build_property.RootNamespace = LeakHunter
+build_property.ProjectDir = D:\0111-1\Project\ASP\2022_12_03\
+build_property.RazorLangVersion = 6.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = D:\0111-1\Project\ASP\2022_12_03
+build_property._RazorSourceGeneratorDebug = 
+
+[D:/0111-1/Project/ASP/2022_12_03/Views/Backend/Analysis_Content.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmFja2VuZFxBbmFseXNpc19Db250ZW50LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/0111-1/Project/ASP/2022_12_03/Views/Backend/Analysis_Manage.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmFja2VuZFxBbmFseXNpc19NYW5hZ2UuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/0111-1/Project/ASP/2022_12_03/Views/Backend/Announment_Content.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmFja2VuZFxBbm5vdW5tZW50X0NvbnRlbnQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/0111-1/Project/ASP/2022_12_03/Views/Backend/Announment_Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmFja2VuZFxBbm5vdW5tZW50X0NyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/0111-1/Project/ASP/2022_12_03/Views/Backend/Announment_Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmFja2VuZFxBbm5vdW5tZW50X0VkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/0111-1/Project/ASP/2022_12_03/Views/Backend/Announment_Manage.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmFja2VuZFxBbm5vdW5tZW50X01hbmFnZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/0111-1/Project/ASP/2022_12_03/Views/Backend/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmFja2VuZFxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/0111-1/Project/ASP/2022_12_03/Views/Backend/Message.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmFja2VuZFxNZXNzYWdlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/0111-1/Project/ASP/2022_12_03/Views/Backend/Message_Content.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmFja2VuZFxNZXNzYWdlX0NvbnRlbnQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/0111-1/Project/ASP/2022_12_03/Views/Backend/Message_Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmFja2VuZFxNZXNzYWdlX0NyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/0111-1/Project/ASP/2022_12_03/Views/Backend/Message_Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmFja2VuZFxNZXNzYWdlX0VkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/0111-1/Project/ASP/2022_12_03/Views/Backend/Message_Manage.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmFja2VuZFxNZXNzYWdlX01hbmFnZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/0111-1/Project/ASP/2022_12_03/Views/DataProcessing/Detect.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGF0YVByb2Nlc3NpbmdcRGV0ZWN0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/0111-1/Project/ASP/2022_12_03/Views/DataProcessing/Excel.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGF0YVByb2Nlc3NpbmdcRXhjZWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/0111-1/Project/ASP/2022_12_03/Views/DataProcessing/PostContent.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGF0YVByb2Nlc3NpbmdcUG9zdENvbnRlbnQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/0111-1/Project/ASP/2022_12_03/Views/DataProcessing/PreContent.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGF0YVByb2Nlc3NpbmdcUHJlQ29udGVudC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/0111-1/Project/ASP/2022_12_03/Views/DataProcessing/Temp.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGF0YVByb2Nlc3NpbmdcVGVtcC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/0111-1/Project/ASP/2022_12_03/Views/DataProcessing/Upload.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGF0YVByb2Nlc3NpbmdcVXBsb2FkLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/0111-1/Project/ASP/2022_12_03/Views/DataProcessing/UserRecords_class.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGF0YVByb2Nlc3NpbmdcVXNlclJlY29yZHNfY2xhc3MuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/0111-1/Project/ASP/2022_12_03/Views/DataProcessing/UserRecords_Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGF0YVByb2Nlc3NpbmdcVXNlclJlY29yZHNfSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/0111-1/Project/ASP/2022_12_03/Views/Home/about.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxhYm91dC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/0111-1/Project/ASP/2022_12_03/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/0111-1/Project/ASP/2022_12_03/Views/Interval/Admin_Interval_Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW50ZXJ2YWxcQWRtaW5fSW50ZXJ2YWxfRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/0111-1/Project/ASP/2022_12_03/Views/Interval/Admin_Search_User_interval.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW50ZXJ2YWxcQWRtaW5fU2VhcmNoX1VzZXJfaW50ZXJ2YWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/0111-1/Project/ASP/2022_12_03/Views/Interval/Admin_SetInterval.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW50ZXJ2YWxcQWRtaW5fU2V0SW50ZXJ2YWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/0111-1/Project/ASP/2022_12_03/Views/Interval/Interval_History.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW50ZXJ2YWxcSW50ZXJ2YWxfSGlzdG9yeS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/0111-1/Project/ASP/2022_12_03/Views/Interval/Run_Interval.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW50ZXJ2YWxcUnVuX0ludGVydmFsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/0111-1/Project/ASP/2022_12_03/Views/Interval/User_Interval.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW50ZXJ2YWxcVXNlcl9JbnRlcnZhbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/0111-1/Project/ASP/2022_12_03/Views/Interval/User_Interval_Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW50ZXJ2YWxcVXNlcl9JbnRlcnZhbF9FZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/0111-1/Project/ASP/2022_12_03/Views/Member/Search_User.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVtYmVyXFNlYXJjaF9Vc2VyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/0111-1/Project/ASP/2022_12_03/Views/Member/User_Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVtYmVyXFVzZXJfRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/0111-1/Project/ASP/2022_12_03/Views/Member/User_Self.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVtYmVyXFVzZXJfU2VsZi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/0111-1/Project/ASP/2022_12_03/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/0111-1/Project/ASP/2022_12_03/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/0111-1/Project/ASP/2022_12_03/Views/StatusSetting/MaintenanceStatus_User.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3RhdHVzU2V0dGluZ1xNYWludGVuYW5jZVN0YXR1c19Vc2VyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/0111-1/Project/ASP/2022_12_03/Views/StatusSetting/StatusSetting_Manager.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3RhdHVzU2V0dGluZ1xTdGF0dXNTZXR0aW5nX01hbmFnZXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/0111-1/Project/ASP/2022_12_03/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/0111-1/Project/ASP/2022_12_03/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/0111-1/Project/ASP/2022_12_03/Views/DataProcessing/PostAnalysis.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGF0YVByb2Nlc3NpbmdcUG9zdEFuYWx5c2lzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = b-wafq898u8e
+
+[D:/0111-1/Project/ASP/2022_12_03/Views/DataProcessing/PreAnalysis.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGF0YVByb2Nlc3NpbmdcUHJlQW5hbHlzaXMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-ik614t0v3b
+
+[D:/0111-1/Project/ASP/2022_12_03/Views/DataProcessing/SetInterval.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGF0YVByb2Nlc3NpbmdcU2V0SW50ZXJ2YWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-kqcwhgkkml
+
+[D:/0111-1/Project/ASP/2022_12_03/Views/Home/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxMb2dpbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = b-9zmjspnc2a
+
+[D:/0111-1/Project/ASP/2022_12_03/Views/Interval/SetInterval.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW50ZXJ2YWxcU2V0SW50ZXJ2YWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-dlmmrqtqu5
+
+[D:/0111-1/Project/ASP/2022_12_03/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-laa3aud7vk
